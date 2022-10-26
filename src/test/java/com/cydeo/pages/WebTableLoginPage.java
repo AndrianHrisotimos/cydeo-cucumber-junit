@@ -6,21 +6,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class WebTablePage {
-
-    public WebTablePage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+public class WebTableLoginPage {
+    public WebTableLoginPage(){
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(name = "username")
-    public WebElement usernameInputBox;
+    public WebElement inputUsername;
 
     @FindBy(name = "password")
-    public WebElement passwordInputBox;
+    public WebElement inputPassword;
 
     @FindBy(xpath = "//button[.='Login']")
     public WebElement loginButton;
-
 
     /**
      * No parameters.
@@ -30,8 +28,8 @@ public class WebTablePage {
      * Password: Tester
      */
     public void login(){
-        this.usernameInputBox.sendKeys("Test");
-        this.passwordInputBox.sendKeys("Tester");
+        this.inputUsername.sendKeys("Test");
+        this.inputPassword.sendKeys("Tester");
         this.loginButton.click();
     }
 
@@ -40,11 +38,10 @@ public class WebTablePage {
      * @param username
      * @param password
      */
-
-    public void login(String username,String password){
-        this.usernameInputBox.sendKeys(username);
-        this.passwordInputBox.sendKeys(password);
-        this.loginButton.click();
+    public void login(String username, String password){
+        inputUsername.sendKeys(username);
+        inputPassword.sendKeys(password);
+        loginButton.click();
     }
 
     /**
@@ -52,8 +49,8 @@ public class WebTablePage {
      * configuration.properties
      */
     public void loginWithConfig(){
-        usernameInputBox.sendKeys(ConfigurationReader.getProperty("webTable.username"));
-        passwordInputBox.sendKeys(ConfigurationReader.getProperty("webTable.password"));
+        inputUsername.sendKeys(ConfigurationReader.getProperty("webTable.username"));
+        inputPassword.sendKeys(ConfigurationReader.getProperty("webTable.password"));
         loginButton.click();
     }
 }

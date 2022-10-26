@@ -13,7 +13,7 @@ public class WebTable_StepDefinitions {
     @Given("user is on the login page of web table app")
     public void user_is_on_the_login_page_of_web_table_app() {
         //Driver.getDriver().get("https://web-table-2.cydeo.com/login");
-        String url = ConfigurationReader.getProperties("webTableUrl");
+        String url = ConfigurationReader.getProperty("webTableUrl");
         Driver.getDriver().get(url);
     }
 

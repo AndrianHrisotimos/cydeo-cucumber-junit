@@ -6,29 +6,32 @@ import java.util.Properties;
 
 public class ConfigurationReader {
 
+    //Create the object of Properties
     private static Properties properties = new Properties();
-
 
     static {
 
         try {
-            //2- We need to open the file in java memory: FileInputStream
-            FileInputStream fileInputStream = new FileInputStream("configuration.properties");
-            //3- Load the properties object using FileInputStream object
-            properties.load(fileInputStream);
+
+            //2- We need to open the file in java memory : FileInputStream
+            FileInputStream file = new FileInputStream("configuration.properties");   //java.io
+
+            //3- Load the properties object using FileInputSteam object
+            properties.load(file);
+
             //close the file
-            fileInputStream.close();
+            file.close();
 
         } catch (IOException e) {
-            System.out.println("File not found in the ConfigurationReader class.");
+            System.out.println("File not found in the ConfigurationReader class");
+
             e.printStackTrace();
         }
 
+
+    }  // here ends the static block
+
+    public static String getProperty(String keyword){
+        return properties.getProperty(keyword);
     }
-
-    public static String getProperties(String myKey) {
-        return properties.getProperty(myKey);
-    }
-
-
 }

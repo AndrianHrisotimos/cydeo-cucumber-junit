@@ -6,13 +6,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+        plugin = "html:target/cucumber-reports.html", //generated automatically after run the code under target folder
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
-        dryRun = false,
-        plugin = {"html:target/cucumber-reports.html",
-                "pretty"},
-
-        tags=""
+        dryRun = false,   //when is true our code will print just the snippet/report
+        tags = ""  //we can attach using annotation a meaningful name for our feature file, so we
+                        // customise how many scenarios will be running by calling them
+        //IMPORTANT- if we use tags the reports won't be generated
 )
 public class CukesRunner {
 }
