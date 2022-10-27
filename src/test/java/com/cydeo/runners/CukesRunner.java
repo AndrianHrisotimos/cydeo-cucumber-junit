@@ -6,7 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = "html:target/cucumber-reports.html", //generated automatically after run the code under target folder
+        plugin = {
+           "html:target/cucumber-reports.html",//generated automatically after run the code under target folder
+           "rerun:target/rerun.txt"},
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
         dryRun = false,   //when is true our code will print just the snippet/report
