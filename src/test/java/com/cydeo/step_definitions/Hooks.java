@@ -1,5 +1,6 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -48,7 +49,7 @@ public class Hooks {  //project  recognise the hooks because we provide the glue
         }
 
 
-
+        BrowserUtils.sleep(5);
         Driver.closeDriver();  // hooks after method will take care to close after each scenario executed
 
 

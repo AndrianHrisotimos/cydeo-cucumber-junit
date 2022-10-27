@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class OrderPage extends BasePage {
 
     public OrderPage() {
@@ -30,7 +32,21 @@ public class OrderPage extends BasePage {
     public WebElement inputState;
 
     @FindBy(name = "zip")
-    public WebElement inputSize;
+    public WebElement inputZip;
 
+
+    @FindBy(name = "card")
+    public List<WebElement> cardType;
+
+
+    //generate those locators using IntelliJ shortcut using Add page element symbol
+    @FindBy(name = "cardNo")
+    public WebElement cardNoInput;
+
+    @FindBy(name = "cardExp")
+    public WebElement cardExpInput;
+
+    @FindBy(css = "button[type='submit']")
+    public WebElement processOrderBtn;
 
 }
