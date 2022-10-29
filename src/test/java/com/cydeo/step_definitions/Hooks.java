@@ -18,19 +18,19 @@ In this class we will be able to pass pre- & post- conditions to each scenario a
 public class Hooks {  //project  recognise the hooks because we provide the glue path in CukesRunner
 
     //import @Before from io.cucumber.java not from junit
-    @Before(order = 1)    //even if we don't write the order nr it will still run the default annotation
+    //@Before(order = 1)    //even if we don't write the order nr it will still run the default annotation
     public void setupScenario(){
 
         System.out.println("=====Setting up browser using cucumber @Before====");
 
    }
 
-    @Before(value = "@login", order = 2)  //--> priorities to what scenarios this can apply
+    //@Before(value = "@login", order = 2)  //--> priorities to what scenarios this can apply
     public void setupScenarioForLogin(){
         System.out.println("=====This will only apply to scenarios with @login tag");
     }
 
-    @Before(value = "@db", order = 0) //--> priorities to what scenarios this can apply , and add certain order
+    //@Before(value = "@db", order = 0) //--> priorities to what scenarios this can apply , and add certain order
    public void setupForDatabaseScenarios(){
         System.out.println("=====This will only apply to scenarios with @db tag");
     }
@@ -57,13 +57,13 @@ public class Hooks {  //project  recognise the hooks because we provide the glue
         //System.out.println("====Scenario ended/ Take a screenshot if it fails");
     }
 
-    @BeforeStep
+    //@BeforeStep
     public void setupStep(){
 
        System.out.println("-------> applying setup using @BeforeStep");
 
     }
-   @AfterClass
+   //@AfterClass
     public void afterStep(){
         System.out.println("---> applying tearDown using @AfterStep");
 
